@@ -1,0 +1,14 @@
+.selected-items {
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    padding: 5px;
+    border-radius: 7px;
+    margin: 3px;
+    background-color: #61c4ff;
+    color: #fff;
+    font-weight: 700;
+  }
+}

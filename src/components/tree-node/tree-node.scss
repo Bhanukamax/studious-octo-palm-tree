@@ -1,0 +1,27 @@
+.tree-node {
+  position: relative;
+  &__checkboxes {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__body {
+    display: flex;
+  }
+
+  &__subtree {
+    margin-left: 7rem;
+  }
+
+  &__label {
+    font-size: 1.1em;
+    font-weight: 600;
+    &:hover {
+      background-color: #eae9fa;
+    }
+  }
+}
+
+.tree-node__label {
+  padding: 10px;
+}

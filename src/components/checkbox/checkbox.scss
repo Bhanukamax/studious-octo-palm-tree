@@ -1,0 +1,39 @@
+.checkbox {
+  opacity: 0;
+  &__container {
+    padding: 0 5px;
+  }
+
+  &__icon {
+    // border: 1px solid red;
+    position: relative;
+    &::before {
+      top: 8px;
+      content: '';
+      // border: 1px solid red;
+      position: absolute;
+      $size: 25px;
+      width: $size;
+      height: $size;
+      background-image: url('./images/checkbox@2x.png');
+      background-size: 200% 100%;
+      background-position-x: 0;
+      background-position-y: 0;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.checkbox__icon.checkbox_icon--checked {
+  &::before {
+    background-position-x: 100%;
+  }
+}
+
+.checkbox__icon.checkbox__icon--expand::before {
+  background-image: url('./images/expand2.png');
+}
+
+.checkbox__icon.checkbox__icon--checkbox-black::before {
+  background-image: url('./images/checkbox-black.png');
+}
