@@ -9,10 +9,18 @@ function App() {
   const [data, setData]: [any[], Function] = useState([]);
   const [checked, setChecked]: [any[], Function] = useState([]);
   const [expanded, setExpanded]: [any[], Function] = useState([]);
+  const [itemHash, setItemHash] = useState({});
 
   const getData = async () => {
     const dataService = new DataService();
     const categories = await dataService.getCategories();
+
+    // Generate a flat list for selected item listing
+    const flatItemHash = categories.reduce(
+      (acc, item) => ({ ...acc, [item.id]: item }),
+      {}
+    );
+    setItemHash(flatItemHash);
 
     const all = transformFlatCategoriesToNested(categories);
 
@@ -40,7 +48,7 @@ function App() {
             }}
           />
         </div>
-        <SelectedItems items={checked} />
+        <SelectedItems selectedIds={checked} itemHash={itemHash} />
       </div>
     </>
   );
