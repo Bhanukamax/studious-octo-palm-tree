@@ -2,17 +2,21 @@ import React from 'react';
 import './selected-items.scss';
 
 interface Props {
-  items: string[];
+  selectedIds: string[];
+  itemHash: any;
 }
 
-function SelectedItems({ items }: Props) {
+function SelectedItems({ selectedIds: items, itemHash }: Props) {
   return (
     <div className='selected-items'>
       <h2 className='selected-items__title'>Selected Items:</h2>
       <div className='selected-items__items'>
-        {items.map((item) => (
-          <div className='selected-items__item'>{item}</div>
-        ))}
+        {Object.keys(itemHash).length > 0 &&
+          items.map((id: string) => (
+            <div className='selected-items__item'>
+              {itemHash[id].name}: {itemHash[id].count}
+            </div>
+          ))}
       </div>
     </div>
   );
